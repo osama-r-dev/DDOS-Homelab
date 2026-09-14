@@ -19,6 +19,19 @@ The lab uses Windows 11, Kali Linux, pfSense, and Security Onion to simulate att
 - hping3
 - tmux
 
-# Network toplogy
+# 2. Lab setup
+
+## 2.1 Networking
+
+### 2.1.1 Network toplogy
 
 ![Network Topology](/images/network_toplogy.jpg)
+
+### 2.1.2 Subnets
+
+| Name  | Machine     | IP           |
+| ----- | ----------- | ------------ |
+| Green | Wiondows 11 | 10.10.10.100 |
+| Blue  | Value 5     | 10.10.20.100 |
+| Red   | Value 2     | 10.10.30.100 |
+| VPN   | Value 5     | 10.10.3.2    |
