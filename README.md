@@ -3,7 +3,7 @@
 A hands-on cybersecurity lab focused on simulating and investigating Denial-of-Service (DoS) and Distributed Denial-of-Service (DDoS) attack scenarios in a controlled environment.
 The lab uses Windows 11, Kali Linux, pfSense, and Security Onion to simulate attack workflows involving ICMP, TCP/SYN, and HTTP traffic. Network activity is monitored and analyzed using tools such as Zeek and Wireshark, with Security Onion and Kibana used for security monitoring, log analysis, and visualization.
 
-# 1 Prerequisites
+# 1. Prerequisites
 
 ## 1.1 Machines
 
@@ -36,7 +36,16 @@ The lab uses Windows 11, Kali Linux, pfSense, and Security Onion to simulate att
 | Red   | Value 2     | 10.10.30.100 |
 | VPN   | Value 5     | 10.10.3.2    |
 
-### 2.1.3 Firewall Rules
+### 2.1.3 Ineterfaces
+
+| Virtual Box | Pfsense |
+| WAN | Bridged Adapter |
+| em1 | intnet-Green|
+| em2 |intnet-Blue |
+| em3 | intnet-Red |
+| em4 | Span |
+
+### 2.1.4 Firewall Rules
 
 ### Blue
 
@@ -44,7 +53,7 @@ The lab uses Windows 11, Kali Linux, pfSense, and Security Onion to simulate att
 
 ### Green
 
-![Network Topology](/images/Green_rules.png.png)
+![Network Topology](/images/Green_rules.png)
 
 ### Red
 
