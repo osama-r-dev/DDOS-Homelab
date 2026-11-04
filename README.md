@@ -84,9 +84,9 @@ The lab uses Windows 11, Kali Linux, pfSense, and Security Onion to simulate att
 ICMP is a layer 3 protocol used for diagnosing troubleshooting communication problems between network devices. In this attack, The attacker starts sending a huge volume of these packets to the point where the attacker can't keep up with them, which results in degraded connectivity to that host.
 
 ![ICMP Normal](/images/ICMP/ICMP-diagram.drawio.png)
-_figure shows normal working of ICMP protocol_
+\_figure shows normal working of ICMP protocol\_
 
-![ICMP Normal](/images/ICMP/ICMP-diagram-2.drawio.png)
+![ICMP Normal](/images/ICMP/ICMP-diagram-1.drawio.png)
 \_figure shows the ping flood attack. The Victim can't handle the excessive amount of requests resulting in network congestion, and degraded connectivity.
 
 ### Attack initation
@@ -101,5 +101,10 @@ _figure shows the flood of icmp requests originating from the attacker ip `10.10
 
 for the IDS I used this rule for Suricata to raise an alert if the victim receives 50 packets per 5 seconds as a possiblity of a DOS/DDos attack happening: `alert icmp any any -> $HOME_NET any (msg:"ICMP Flood Detected - possible DoS"; itype:8; threshold:type threshold, track by_src, count 50, seconds 5; classtype:attempted-dos; priority:2; sid:1000001; rev:1;)`
 
-![Wireshark ](/images/ICMP/spikeAndTrigger.png)
+![Alert Fired ](/images/ICMP/spikeAndTrigger.png)
 _figure on security onion shows the spike of the amount of packets at the same time of the attack as well as the Suricata alert being fired_
+
+### Attack Impact
+
+![Ping fail ](/images/ICMP/pingfail.png)
+_figure shows extremly slow ping responses around 1 ping reponse in 10 minutes which indicates the high bandwidth consumption _
