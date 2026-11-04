@@ -62,3 +62,37 @@ The lab uses Windows 11, Kali Linux, pfSense, and Security Onion to simulate att
 ### WAN
 
 ![Network Topology](/images/WAN_rules.png)
+
+### 2.1.5 SPAN Port configuration
+
+![Network Topology](/images/SPAN_port%20setup.png)
+
+### 2.2 Monitoring Stack
+
+- Security Onion: monitoring/analysis platform
+- Zeek: network telemetry
+- Suricata: network IDS/alerts
+- Wireshark: packet-level analysis
+- Kibana: searching/visualization
+
+# 3. Attack Scenarions
+
+## 3.1 Dos ICMP Attack
+
+### Attack Definition
+
+ICMP is a layer 3 protocol used for diagnosing troubleshooting communication problems between network devices. In this attack, The attacker starts sending a huge volume of these packets to the point where the attacker can't keep up with them, which results in degraded connectivity to that host.
+
+![ICMP Normal](/images/ICMP/ICMP-diagram.drawio.png)
+_figure shows normal working of ICMP protocol_
+
+![ICMP Normal](/images/ICMP/ICMP-diagram-2.drawio.pngg)
+\_figure shows the ping flood attack. The Victim can't handle the excessive amount of requests resulting in network congestion, and degraded connectivity.
+
+### Attack initation
+
+![Attack Execution](/images/ICMP/attack-commnad.png)
+_figure shows hping3 icmp flood command run against the victim ip address_
+
+![Wireshark ](/images/ICMP/wireshark-duringattack.png)
+_figure shows the flood of icmp requests received by the victim vm_
