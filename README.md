@@ -83,10 +83,10 @@ The lab uses Windows 11, Kali Linux, pfSense, and Security Onion to simulate att
 
 ICMP is a layer 3 protocol used for diagnosing troubleshooting communication problems between network devices. In this attack, The attacker starts sending a huge volume of these packets to the point where the attacker can't keep up with them, which results in degraded connectivity to that host.
 
-![ICMP Normal](/images/ICMP/ICMP-diagram.drawio.png)
+![ICMP Normal](/images/ICMP/ICMP-diagram-1.drawio.png)
 \_figure shows normal working of ICMP protocol\_
 
-![ICMP Normal](/images/ICMP/ICMP-diagram-1.drawio.png)
+![ICMP Normal](/images/ICMP/ICMP-diagram-2.drawio.png)
 \_figure shows the ping flood attack. The Victim can't handle the excessive amount of requests resulting in network congestion, and degraded connectivity.
 
 ### Attack initation
@@ -108,3 +108,15 @@ _figure on security onion shows the spike of the amount of packets at the same t
 
 ![Ping fail ](/images/ICMP/pingfail.png)
 _figure shows extremly slow ping responses around 1 ping reponse in 10 minutes which indicates the high bandwidth consumption _
+
+### Attack Mitigation
+
+For this attack type the process is straighforward we could create a firewall rule to block that ip address of the attacker.
+
+![Ping fail ](/images/ICMP/Rule-ICMP_block.png)
+_figure shows a rule creation on pfSense to block ICMP packets coming from the ip `10.10.30.100` _
+
+### Verification
+
+![Ping fail ](/images/ICMP/ping-fail-mitigation.png)
+_figure shows the attacker failing to ping the victim now after the new rule has been applied resulting in 100% packet loss_
